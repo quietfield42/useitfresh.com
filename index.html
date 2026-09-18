@@ -16,9 +16,12 @@
   html,body{height:100%;margin:0}
   body{background:#010101;color:#e9f1eb;font:15px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;
     display:flex;align-items:center;justify-content:center;overflow:hidden}
-  /* The stage keeps the video's 9:16 shape and fits the screen either way. */
-  .fridge-stage{position:relative;height:min(94svh,calc(100vw * 16 / 9));aspect-ratio:9/16;
-    transition:opacity .6s ease}
+  /* The video is 9:16 with a lot of black around the fridge, so the stage is
+     drawn 1.35x larger than the screen and centred on the fridge itself
+     (about 44% across, 48% down, so the opened door stays in view); the black margin falls off-screen. */
+  .fridge-stage{position:absolute;left:50%;top:50%;aspect-ratio:9/16;
+    height:min(120svh,calc(100vw * 16 / 9 * 1.35));
+    transform:translate(-44%,-45%);transition:opacity .6s ease}
   .fridge-stage.leaving{opacity:0}
   .fridge-stage video{width:100%;height:100%;display:block;object-fit:fill;background:#010101}
   /* idle cues: a soft sweep across the door and a glint down the handle */
@@ -34,10 +37,7 @@
   /* the whole fridge is the button, so a thumb can't miss it */
   .door-hit{position:absolute;inset:0;border:0;background:transparent;padding:0;cursor:pointer}
   .door-hit:focus-visible{outline:2px solid #d5e8c6;outline-offset:-6px;border-radius:8px}
-  .click-hint{position:absolute;bottom:4%;left:0;right:0;text-align:center;color:#dbe4dc;
-    font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;pointer-events:none;opacity:.85}
-  .fridge-stage:not(.idle) .door-shine,.fridge-stage:not(.idle) .handle-shine,
-  .fridge-stage:not(.idle) .click-hint{display:none}
+  .fridge-stage:not(.idle) .door-shine,.fridge-stage:not(.idle) .handle-shine{display:none}
   .skip{position:fixed;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));
     color:#8fa79a;font-size:.8rem;text-decoration:none;opacity:.75}
   .skip:hover,.skip:focus-visible{opacity:1;text-decoration:underline}
@@ -56,7 +56,6 @@
   <div class="door-shine" aria-hidden="true"><i></i></div>
   <div class="handle-shine" aria-hidden="true"><i></i></div>
   <button class="door-hit" id="doorHit" aria-label="Open the fridge and come in"></button>
-  <span class="click-hint">Tap the door to open</span>
 </div>
 <a class="skip" href="home.html">Skip to the website</a>
 <noscript><p style="position:fixed;bottom:40px;width:100%;text-align:center">
