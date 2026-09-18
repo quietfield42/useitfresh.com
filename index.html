@@ -7,37 +7,84 @@
 <meta name="description" content="Use It Fresh keeps track of what's in your fridge and helps you use food before it goes to waste.">
 <meta property="og:title" content="Use It Fresh">
 <meta property="og:description" content="Know what's in your fridge. Use it before it goes to waste.">
-<meta property="og:image" content="https://useitfresh.com/intro/fridge-closed.png">
-<meta name="theme-color" content="#07100f">
+<meta property="og:image" content="https://useitfresh.com/intro/fridge-closed.jpg">
+<meta name="theme-color" content="#010101">
 <link rel="icon" href="symbol-color.svg">
-<link rel="preload" href="intro/fridge-opening.mp4" as="video" type="video/mp4">
-<link rel="stylesheet" href="intro/fridge.css">
+<link rel="preload" href="intro/fridge-opening-4k.mp4" as="video" type="video/mp4">
 <style>
-  html,body{height:100%}
-  body{margin:0;background:#07100f;color:#e8efe9;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;min-height:100svh;
-    font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
-  .fresh-fridge{width:min(92vw,46svh)}
-  .hint{margin:.4rem 0 0;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;
-    color:#9fcb76;opacity:.85}
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{background:#010101;color:#e9f1eb;font:15px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;
+    display:flex;align-items:center;justify-content:center;overflow:hidden}
+  /* The stage keeps the video's 9:16 shape and fits the screen either way. */
+  .fridge-stage{position:relative;height:min(94svh,calc(100vw * 16 / 9));aspect-ratio:9/16;
+    transition:opacity .6s ease}
+  .fridge-stage.leaving{opacity:0}
+  .fridge-stage video{width:100%;height:100%;display:block;object-fit:fill;background:#010101}
+  /* idle cues: a soft sweep across the door and a glint down the handle */
+  .door-shine{position:absolute;inset:0;clip-path:polygon(14% 12.5%,63.5% 12.5%,63.5% 67.8%,14% 67.8%);
+    pointer-events:none;mix-blend-mode:screen}
+  .door-shine i{position:absolute;inset:0;background:linear-gradient(112deg,transparent 35%,
+    rgba(255,248,224,.08) 42%,rgba(255,255,255,.33) 49%,rgba(255,255,255,.10) 54%,transparent 62%);
+    transform:translateX(-100%);animation:doorSweep 6.5s ease-in-out infinite}
+  .handle-shine{position:absolute;left:15.1%;top:20.7%;width:2.1%;height:32.2%;overflow:hidden;
+    border-radius:20px;pointer-events:none;mix-blend-mode:screen}
+  .handle-shine i{display:block;position:absolute;inset:-25% -50% 100%;background:radial-gradient(ellipse,
+    white 0%,rgba(255,251,231,.8) 25%,transparent 70%);animation:handleSweep 6.5s ease-in-out infinite}
+  /* the whole fridge is the button, so a thumb can't miss it */
+  .door-hit{position:absolute;inset:0;border:0;background:transparent;padding:0;cursor:pointer}
+  .door-hit:focus-visible{outline:2px solid #d5e8c6;outline-offset:-6px;border-radius:8px}
+  .click-hint{position:absolute;bottom:4%;left:0;right:0;text-align:center;color:#dbe4dc;
+    font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;pointer-events:none;opacity:.85}
+  .fridge-stage:not(.idle) .door-shine,.fridge-stage:not(.idle) .handle-shine,
+  .fridge-stage:not(.idle) .click-hint{display:none}
   .skip{position:fixed;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));
-    font-size:.8rem;color:#8fa79a;text-decoration:none;opacity:.7}
+    color:#8fa79a;font-size:.8rem;text-decoration:none;opacity:.75}
   .skip:hover,.skip:focus-visible{opacity:1;text-decoration:underline}
-  .fresh-controls{padding-top:6px}
+  @keyframes doorSweep{0%,5%{transform:translateX(-100%)}30%,100%{transform:translateX(100%)}}
+  @keyframes handleSweep{0%,27%{transform:translateY(0);opacity:0}29%{opacity:1}
+    48%{transform:translateY(500%);opacity:1}51%,100%{transform:translateY(500%);opacity:0}}
+  @media (prefers-reduced-motion:reduce){.door-shine i,.handle-shine i{animation:none}
+    .handle-shine{background:rgba(255,255,255,.15)}.fridge-stage{transition:none}}
 </style>
 </head>
 <body>
-<div class="fresh-fridge" data-fresh-fridge data-destination="home.html">
-  <video muted playsinline preload="auto" poster="intro/fridge-closed.png">
-    <source src="intro/fridge-opening.mp4" type="video/mp4">
+<div class="fridge-stage idle" id="stage">
+  <video id="movie" playsinline muted preload="auto" poster="intro/fridge-closed.jpg">
+    <source src="intro/fridge-opening-4k.mp4" type="video/mp4">
   </video>
-  <img class="logo" src="intro/logo.svg" alt="Use It Fresh">
-  <button class="trigger" aria-label="Open the fridge"></button>
+  <div class="door-shine" aria-hidden="true"><i></i></div>
+  <div class="handle-shine" aria-hidden="true"><i></i></div>
+  <button class="door-hit" id="doorHit" aria-label="Open the fridge and come in"></button>
+  <span class="click-hint">Tap the door to open</span>
 </div>
-<div class="fresh-controls"><button type="button">Open the fridge</button><a href="home.html" hidden>Enter website</a></div>
-<p class="hint">Tap the fridge</p>
 <a class="skip" href="home.html">Skip to the website</a>
-<noscript><p style="text-align:center"><a href="home.html" style="color:#9fcb76">Enter the website</a></p></noscript>
-<script src="intro/fridge.js" defer></script>
+<noscript><p style="position:fixed;bottom:40px;width:100%;text-align:center">
+  <a href="home.html" style="color:#9fcb76">Enter the website</a></p></noscript>
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var movie = document.getElementById('movie');
+  var going = false;
+  function enter() {
+    if (going) return;
+    going = true;
+    stage.classList.add('leaving');
+    setTimeout(function () { location.assign('home.html'); }, 550);
+  }
+  document.getElementById('doorHit').addEventListener('click', function () {
+    if (!stage.classList.contains('idle')) return;
+    stage.classList.remove('idle');
+    // reduced motion: skip the film, go straight in
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return enter();
+    movie.currentTime = 0;
+    var p = movie.play();
+    if (p && p.catch) p.catch(enter);
+    setTimeout(enter, 8000);          // never leave anyone stuck on a closed fridge
+  });
+  movie.addEventListener('ended', function () { setTimeout(enter, 350); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') enter(); });
+})();
+</script>
 </body>
 </html>
