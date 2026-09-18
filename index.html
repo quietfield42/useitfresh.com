@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Use It Fresh</title>
+<meta name="description" content="Use It Fresh keeps track of what's in your fridge and helps you use food before it goes to waste.">
+<meta property="og:title" content="Use It Fresh">
+<meta property="og:description" content="Know what's in your fridge. Use it before it goes to waste.">
+<meta property="og:image" content="https://useitfresh.com/intro/fridge-closed.png">
+<meta name="theme-color" content="#07100f">
+<link rel="icon" href="symbol-color.svg">
+<link rel="preload" href="intro/fridge-opening.mp4" as="video" type="video/mp4">
+<link rel="stylesheet" href="intro/fridge.css">
+<style>
+  html,body{height:100%}
+  body{margin:0;background:#07100f;color:#e8efe9;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;min-height:100svh;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+  .fresh-fridge{width:min(92vw,46svh)}
+  .hint{margin:.4rem 0 0;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;
+    color:#9fcb76;opacity:.85}
+  .skip{position:fixed;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));
+    font-size:.8rem;color:#8fa79a;text-decoration:none;opacity:.7}
+  .skip:hover,.skip:focus-visible{opacity:1;text-decoration:underline}
+  .fresh-controls{padding-top:6px}
+</style>
+</head>
+<body>
+<div class="fresh-fridge" data-fresh-fridge data-destination="home.html">
+  <video muted playsinline preload="auto" poster="intro/fridge-closed.png">
+    <source src="intro/fridge-opening.mp4" type="video/mp4">
+  </video>
+  <img class="logo" src="intro/logo.svg" alt="Use It Fresh">
+  <button class="trigger" aria-label="Open the fridge"></button>
+</div>
+<div class="fresh-controls"><button type="button">Open the fridge</button><a href="home.html" hidden>Enter website</a></div>
+<p class="hint">Tap the fridge</p>
+<a class="skip" href="home.html">Skip to the website</a>
+<noscript><p style="text-align:center"><a href="home.html" style="color:#9fcb76">Enter the website</a></p></noscript>
+<script src="intro/fridge.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Use It Fresh — use what you have, waste less</title>
+<meta name="description" content="Use It Fresh keeps track of the food in your kitchen, tells you what needs using first, and suggests meals from what you already have.">
+<meta property="og:title" content="Use It Fresh">
+<meta property="og:description" content="Use what you have. Waste less.">
+<meta property="og:type" content="website">
+<link rel="icon" href="symbol-color.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800&family=Nunito:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=auto_awesome,document_scanner,event_available,groups,restaurant_menu,schedule,shield,visibility_off&display=block">
+<link rel="stylesheet" href="style.css">
+<link rel="preload" as="image" href="media/fridge-closed.jpg">
+<script>
+  // The fridge entrance plays once per visit. A link straight to a section
+  // (#plans) or a second page view in the same visit goes to the page.
+  try {
+    if (true) {  /* the fridge now plays on the entrance page (index.html) */
+      document.documentElement.classList.add('entered');
+    }
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<div class="entrance" id="entrance" role="dialog" aria-modal="true" aria-label="Use It Fresh">
+  <button class="entrance-skip" type="button" data-enter-now>Skip</button>
+  <button class="fridge" type="button" id="fridge" aria-label="Open the fridge and come in">
+    <span class="fridge-frame">
+      <video id="fridgeVideo" muted playsinline preload="auto"
+             poster="media/fridge-closed.jpg" aria-hidden="true"></video>
+      <span class="glint glint-handle" aria-hidden="true"></span>
+      <span class="glint glint-door" aria-hidden="true"></span>
+    </span>
+  </button>
+  <p class="entrance-hint" aria-hidden="true">Tap the fridge to open</p>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="home.html"><img src="symbol-color.svg" alt="">Use It Fresh</a>
+    <nav class="nav">
+      <a href="home.html" aria-current="page">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <section class="hero">
+    <div>
+      <p class="tagline">Use what you have. Waste less.</p>
+      <h1>Your kitchen, on your phone.</h1>
+      <p class="lede">Use It Fresh remembers what food you have, tells you what needs using first, and suggests meals you can cook from it tonight. Scan a shelf, a barcode or a receipt, and it fills itself in.</p>
+      <div class="cta">
+        <a class="btn" href="support.html">Get in touch</a>
+        <a class="btn ghost" href="#how">See how it works</a>
+      </div>
+      <p class="note" style="margin-top:14px">In testing on iPhone. Not on the App Store yet.</p>
+    </div>
+    <div class="collage" aria-hidden="true">
+      <img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/salad-leaves.webp" alt="" loading="lazy">
+      <img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/red-onions.webp" alt="" loading="lazy">
+      <img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/lemons.webp" alt="" loading="lazy">
+      <img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/eggs.webp" alt="" loading="lazy">
+      <img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/sourdough.webp" alt="" loading="lazy">
+      <img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/cherry-tomatoes.webp" alt="" loading="lazy">
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>How it works</h2>
+    <p class="sub">Three things, and none of them is typing out your whole fridge.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="ico" aria-hidden="true"><span class="ms">document_scanner</span></div>
+        <b>Put your food in</b>
+        <p>Photograph a shelf and it lists what it sees. Scan a barcode, photograph a receipt, or add something by hand. You check the suggestions before anything is added.</p>
+      </div>
+      <div class="card">
+        <div class="ico" aria-hidden="true"><span class="ms">schedule</span></div>
+        <b>See what needs using</b>
+        <p>Every food shows how long it has, and says whether that came from a printed date or an estimate. A daily reminder names what to use next.</p>
+      </div>
+      <div class="card">
+        <div class="ico" aria-hidden="true"><span class="ms">restaurant_menu</span></div>
+        <b>Cook what you have</b>
+        <p>Meal ideas built from the food in your kitchen, with the things that need using first. Leave out anything you're allergic to.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="taste">
+    <div class="learn">
+      <div>
+        <p class="tagline">Use It Fresh Plus</p>
+        <h2>Meal ideas that learn your taste</h2>
+        <p class="sub">The more you cook with Use It Fresh, the more its ideas look like the meals you actually choose, still built from the food you have.</p>
+        <ul class="points">
+          <li><b>It learns from what you do.</b> The meals you keep, plan, cook and eat, and the ones you skip or swap out. No long quiz: three quick taps to start, if you like: cuisines, cooking time and spice.</li>
+          <li><b>It leans, it never overrides.</b> Allergies and foods you leave out always come first. And about one idea in four is something a little different, so you don't end up in a rut.</li>
+          <li><b>You can see it and change it.</b> Profile → What we've learned shows it in plain words. Remove anything that isn't right, or start again.</li>
+          <li><b>It stays yours.</b> Only you see it. It's used for your meal ideas and nothing else, never sold or used for ads, and it's deleted with your account.</li>
+        </ul>
+      </div>
+      <div class="learned" aria-label="An example of What we've learned in the app">
+        <div class="learned-head"><span class="spark" aria-hidden="true"><span class="ms">auto_awesome</span></span><b>What we've learned</b><span class="tag">PLUS</span></div>
+        <p class="learned-sub">From the meals you keep, plan, cook and eat.</p>
+        <ul>
+          <li><span class="lean yes" aria-hidden="true">♥</span>Likes Thai and Mexican food<span class="x" aria-hidden="true">✕</span></li>
+          <li><span class="lean yes" aria-hidden="true">♥</span>Often picks chicken and eggs<span class="x" aria-hidden="true">✕</span></li>
+          <li><span class="lean yes" aria-hidden="true">♥</span>Usually cooks in under 30 minutes<span class="x" aria-hidden="true">✕</span></li>
+          <li><span class="lean no" aria-hidden="true">–</span>Rarely picks fish or soups<span class="x" aria-hidden="true">✕</span></li>
+        </ul>
+        <p class="note">An example. Yours is built from your own choices.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Made to be honest</h2>
+    <p class="sub">The things we promise, whatever plan you're on.</p>
+    <div class="photo-cards">
+      <article class="photo-card">
+        <div class="photo-card-img"><img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/milk.webp" alt="A bottle of milk" loading="lazy"></div>
+        <span class="photo-card-ico" aria-hidden="true"><span class="ms">event_available</span></span>
+        <b>Dates you can trust</b>
+        <p>The app never invents a use-by date. If a date is a guess from typical shelf life, it says so.</p>
+      </article>
+      <article class="photo-card">
+        <div class="photo-card-img"><img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/chicken-breast.webp" alt="Raw chicken breast" loading="lazy"></div>
+        <span class="photo-card-ico" aria-hidden="true"><span class="ms">shield</span></span>
+        <b>Never a safety claim</b>
+        <p>It won't tell you food is safe or spoiled. When in doubt with high-risk food, throw it out and follow local food-safety advice.</p>
+      </article>
+      <article class="photo-card">
+        <div class="photo-card-img"><img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/lasagne.webp" alt="A shared lasagne" loading="lazy"></div>
+        <span class="photo-card-ico" aria-hidden="true"><span class="ms">groups</span></span>
+        <b>Your household, shared</b>
+        <p>One kitchen the whole household sees: the same food, shopping list and plans, live on everyone's phone.</p>
+      </article>
+      <article class="photo-card">
+        <div class="photo-card-img"><img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/strawberries.webp" alt="Fresh strawberries" loading="lazy"></div>
+        <span class="photo-card-ico" aria-hidden="true"><span class="ms">visibility_off</span></span>
+        <b>No ads, no trackers</b>
+        <p>No advertising, no analytics, and nothing about you sold to anyone.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="plans">
+    <h2>Free and Plus</h2>
+    <p class="sub">The everyday things stay free. Plus adds planning, smarter scanning and money.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Free</h3>
+        <p class="price">Free, for good</p>
+        <ul>
+          <li>Your kitchen: fridge, freezer, pantry</li>
+          <li>Dates, use-soon reminders, what you used</li>
+          <li>Allergy and diet exclusions</li>
+          <li>Meal ideas from your food</li>
+          <li>Barcodes and single-food photos</li>
+          <li>3 shelf or receipt scans a month</li>
+          <li>Shopping list, shared with your household</li>
+        </ul>
+      </div>
+      <div class="plan plus">
+        <h3>Plus <span class="tag">Coming</span></h3>
+        <p class="price">A$7.99 a month <span class="price-or">or</span> A$49.99 a year</p>
+        <p class="price-note">About A$4.17 a month on the yearly plan, with 7 days free to try it. One Plus covers up to 6 people in your household.</p>
+        <ul>
+          <li>Plan my week, leftovers and “I ate this”</li>
+          <li>Meals that fit your goals: calories and protein</li>
+          <li>Scan a whole shelf or a receipt at once</li>
+          <li>Receipts, prices and a weekly budget</li>
+          <li>Meal ideas that learn your taste</li>
+          <li>Your own recipe collection</li>
+          <li>One Plus covers up to 6 in your household</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note" style="margin-top:16px">Plus isn't on sale yet: these are the prices it will launch at in Australia, through the App Store, where you can cancel at any time. Nothing in the app asks you to pay today.</p>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+    <details>
+      <summary>Does it tell me whether food is still safe to eat?</summary>
+      <p>No, and it never will. It tracks dates and gives estimates so you notice food in time. Judging whether something is safe is yours to make — check the food itself, and when in doubt with high-risk food, throw it out.</p>
+    </details>
+    <details>
+      <summary>What happens to the photos I take?</summary>
+      <p>A photo of a shelf, a receipt or a single food is sent to Google's Gemini service to read what's in it, and the picture is stored in your household's private storage so your food has a picture. Receipt photos aren't kept. See the <a href="privacy.html">privacy policy</a>.</p>
+    </details>
+    <details>
+      <summary>Can my partner or housemates see the same kitchen?</summary>
+      <p>Yes. Create a household and share its invite code. Everyone sees the same food, shopping list and plans, and changes appear on each other's phones straight away.</p>
+    </details>
+    <details>
+      <summary>How does it learn what I like?</summary>
+      <p>From choices you already make in the app: the meal ideas you keep, the meals you plan, cook and mark as eaten, and the ones you skip or swap out. Recent choices count most, so a phase doesn't stick forever. A short summary goes with your food list when you ask for ideas. You can read it, remove parts of it or reset it in Profile → What we've learned. It's part of Plus.</p>
+    </details>
+    <details>
+      <summary>When is it on the App Store?</summary>
+      <p>It's in testing now. If you'd like to be told when it's out, <a href="support.html">get in touch</a>.</p>
+    </details>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Use It Fresh</span>
+    <span>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var entrance = document.getElementById('entrance');
+  if (!entrance) return;
+  if (root.classList.contains('entered')) { entrance.remove(); return; }
+
+  var video = document.getElementById('fridgeVideo');
+  var fridge = document.getElementById('fridge');
+  var small = Math.min(window.innerWidth, window.innerHeight) < 700 && (window.devicePixelRatio || 1) < 3;
+  video.src = small ? 'media/fridge-open-720.mp4' : 'media/fridge-open.mp4';
+  if (small) video.poster = 'media/fridge-closed-720.jpg';
+  root.classList.add('entering');
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var done = false;
+
+  function enter() {
+    if (done) return;
+    done = true;
+    try { sessionStorage.setItem('uif-opened', '1'); } catch (e) {}
+    window.scrollTo(0, 0);
+    entrance.classList.add('leaving');
+    root.classList.remove('entering');
+    setTimeout(function () {
+      entrance.remove();
+      var main = document.querySelector('main');
+      if (main) { main.setAttribute('tabindex', '-1'); main.focus({ preventScroll: true }); }
+    }, still ? 50 : 700);
+  }
+
+  function open() {
+    if (entrance.classList.contains('opening')) return;
+    entrance.classList.add('opening');
+    if (still) { enter(); return; }
+    var played = video.play();
+    video.addEventListener('ended', enter, { once: true });
+    // Never leave anyone stuck on a closed fridge.
+    setTimeout(enter, 3200);
+    if (played && played.catch) played.catch(enter);
+  }
+
+  fridge.addEventListener('click', open);
+  entrance.querySelector('[data-enter-now]').addEventListener('click', enter);
+  entrance.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') enter();
+  });
+})();
+</script>
+</body>
+</html>
