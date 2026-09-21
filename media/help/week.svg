@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" role="img" aria-labelledby="t d">
+  <title id="t">Plan my week</title>
+  <desc id="d">Two weeks of days, today outlined, days with meals marked, and the chosen day's meals shown underneath the calendar.</desc>
+  <rect width="360" height="300" rx="18" fill="#F7F6EF" stroke="#DCE3D2"/>
+
+  <!-- the four marks -->
+  <g font-family="Nunito, sans-serif" text-anchor="middle" font-size="9" fill="#5B685E">
+    <rect x="16" y="14" width="76" height="40" rx="13" fill="#FFFEF9" stroke="#DCE3D2"/>
+    <circle cx="54" cy="28" r="6" fill="none" stroke="#07533A" stroke-width="2"/>
+    <text x="54" y="47">2,000 kcal</text>
+
+    <rect x="100" y="14" width="76" height="40" rx="13" fill="#FFFEF9" stroke="#DCE3D2"/>
+    <circle cx="134" cy="28" r="5" fill="#07533A"/><circle cx="144" cy="28" r="5" fill="#07533A" opacity=".5"/>
+    <text x="138" y="47">2 at home</text>
+
+    <rect x="184" y="14" width="76" height="40" rx="13" fill="#FFFEF9" stroke="#DCE3D2"/>
+    <path d="M214 24h14l-3 10h-10z" fill="none" stroke="#07533A" stroke-width="2"/>
+    <text x="222" y="47">1 to buy</text>
+
+    <rect x="268" y="14" width="76" height="40" rx="13" fill="#FFFEF9" stroke="#DCE3D2"/>
+    <circle cx="306" cy="28" r="7" fill="#F8EDD5" stroke="#B7791F" stroke-width="2"/>
+    <text x="306" y="47">$500 a week</text>
+  </g>
+
+  <!-- the calendar -->
+  <rect x="16" y="64" width="328" height="122" rx="18" fill="#EEF1E7" stroke="#DCE3D2"/>
+  <g font-family="Nunito, sans-serif" font-size="9" fill="#5B685E" text-anchor="middle">
+    <text x="45" y="84">MON</text><text x="90" y="84">TUE</text><text x="135" y="84">WED</text>
+    <text x="180" y="84">THU</text><text x="225" y="84">FRI</text><text x="270" y="84">SAT</text><text x="315" y="84">SUN</text>
+  </g>
+  <g font-family="Figtree, sans-serif" font-size="12" font-weight="800" text-anchor="middle">
+    <!-- week one -->
+    <rect x="26" y="90" width="38" height="42" rx="12" fill="#2E7D5B"/>
+    <text x="45" y="108" fill="#FFFEF9">21</text><circle cx="45" cy="120" r="3.5" fill="#FFFEF9"/>
+    <rect x="71" y="90" width="38" height="42" rx="12" fill="#F7D6EC"/>
+    <text x="90" y="108" fill="#1F2A22">22</text><circle cx="90" cy="120" r="3.5" fill="#B02585"/>
+    <rect x="116" y="90" width="38" height="42" rx="12" fill="#F7D6EC"/>
+    <text x="135" y="108" fill="#1F2A22">23</text><circle cx="135" cy="120" r="3.5" fill="#B02585"/>
+    <rect x="161" y="90" width="38" height="42" rx="12" fill="#EBA0D2"/>
+    <text x="180" y="108" fill="#1F2A22">24</text><circle cx="180" cy="120" r="3.5" fill="#7A1A5C"/>
+    <rect x="206" y="90" width="38" height="42" rx="12" fill="#FFFEF9" stroke="#DCE3D2"/>
+    <text x="225" y="108" fill="#5B685E">25</text><text x="225" y="124" font-size="11" fill="#86927F">+</text>
+    <rect x="251" y="90" width="38" height="42" rx="12" fill="#F7D6EC"/>
+    <text x="270" y="108" fill="#1F2A22">26</text><circle cx="270" cy="120" r="3.5" fill="#B02585"/>
+    <rect x="296" y="90" width="38" height="42" rx="12" fill="#FFFEF9" stroke="#DCE3D2"/>
+    <text x="315" y="108" fill="#5B685E">27</text><text x="315" y="124" font-size="11" fill="#86927F">+</text>
+    <!-- week two -->
+    <g opacity=".85">
+      <rect x="26" y="138" width="38" height="40" rx="12" fill="#FFFEF9" stroke="#DCE3D2"/><text x="45" y="156" fill="#5B685E">28</text>
+      <rect x="71" y="138" width="38" height="40" rx="12" fill="#F7D6EC"/><text x="90" y="156" fill="#1F2A22">29</text>
+      <rect x="116" y="138" width="38" height="40" rx="12" fill="#FFFEF9" stroke="#DCE3D2"/><text x="135" y="156" fill="#5B685E">30</text>
+      <rect x="161" y="138" width="38" height="40" rx="12" fill="#FFFEF9" stroke="#DCE3D2"/><text x="180" y="156" fill="#5B685E">1</text>
+      <rect x="206" y="138" width="38" height="40" rx="12" fill="#FFFEF9" stroke="#DCE3D2"/><text x="225" y="156" fill="#5B685E">2</text>
+      <rect x="251" y="138" width="38" height="40" rx="12" fill="#FFFEF9" stroke="#DCE3D2"/><text x="270" y="156" fill="#5B685E">3</text>
+      <rect x="296" y="138" width="38" height="40" rx="12" fill="#FFFEF9" stroke="#DCE3D2"/><text x="315" y="156" fill="#5B685E">4</text>
+    </g>
+  </g>
+
+  <!-- the day itself -->
+  <rect x="16" y="198" width="328" height="86" rx="18" fill="#FFFEF9" stroke="#2E7D5B"/>
+  <text x="32" y="222" font-family="Figtree, sans-serif" font-size="14" font-weight="800" fill="#1F2A22">Today</text>
+  <text x="328" y="222" text-anchor="end" font-family="Nunito, sans-serif" font-size="12" font-weight="700" fill="#07533A">+ Add a meal</text>
+  <rect x="32" y="234" width="36" height="36" rx="12" fill="#E3EDDD"/>
+  <path d="M44 244v16M56 244v16" stroke="#07533A" stroke-width="2" stroke-linecap="round"/>
+  <text x="80" y="250" font-family="Nunito, sans-serif" font-size="13" font-weight="700" fill="#1F2A22">Tomato &amp; spinach pasta</text>
+  <text x="80" y="266" font-family="Nunito, sans-serif" font-size="11" fill="#5B685E">Dinner · 15 min · serves 2 · everything in your kitchen</text>
+</svg>

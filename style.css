@@ -213,3 +213,17 @@ html.entered .entrance { display:none; }
   .entrance-hint { animation:none; }
   .entrance { transition:none; }
 }
+
+/* Help illustrations (21 Sep): a drawn screen beside the words, so the page
+   is not a wall of text. They are SVG, so they stay sharp and weigh nothing. */
+.shot { margin:22px 0 26px; }
+.shot img { width:100%; max-width:560px; border-radius:18px;
+            border:1px solid var(--line); background:var(--surface);
+            box-shadow:var(--shadow); }
+.shot figcaption { margin-top:10px; max-width:560px; font-size:14px;
+                   color:var(--ink-soft); }
+@media (min-width:900px) {
+  .shot { display:grid; grid-template-columns:minmax(0,340px) 1fr; gap:18px;
+          align-items:center; }
+  .shot figcaption { margin-top:0; }
+}
