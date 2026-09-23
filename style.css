@@ -214,12 +214,15 @@ html.entered .entrance { display:none; }
   .entrance { transition:none; }
 }
 
-/* Help illustrations (21 Sep): a drawn screen beside the words, so the page
-   is not a wall of text. They are SVG, so they stay sharp and weigh nothing. */
+/* Help pictures: a screen beside the words, so the page is not a wall of
+   text. Drawn ones are SVG and sit wide; a real phone screenshot is tall, so
+   it is kept to the height of a phone held beside the text (23 Sep). */
 .shot { margin:22px 0 26px; }
 .shot img { width:100%; max-width:560px; border-radius:18px;
             border:1px solid var(--line); background:var(--surface);
             box-shadow:var(--shadow); }
+.shot.phone img { width:auto; max-width:100%; max-height:520px;
+                  border-radius:26px; display:block; }
 .shot figcaption { margin-top:10px; max-width:560px; font-size:14px;
                    color:var(--ink-soft); }
 @media (min-width:900px) {
