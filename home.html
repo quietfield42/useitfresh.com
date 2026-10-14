@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800&family=Nunito:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=auto_awesome,document_scanner,event_available,groups,restaurant_menu,schedule,shield,visibility_off&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=ac_unit,auto_awesome,document_scanner,event_available,groups,insights,restaurant_menu,schedule,shield,visibility_off&display=block">
 <link rel="stylesheet" href="style.css">
 <link rel="preload" as="image" href="media/fridge-closed.jpg">
 <script>
@@ -63,82 +63,94 @@
       <p class="lede tight"><em>Use It Fresh</em> then recommends personalised recipes based on what you already have and your preferences and dietary requirements, prioritising ingredients closest to expiry.</p>
       <p class="lede tight">No more guessing what you have, penning shopping lists or staring into the fridge at dinner time.</p>
       <p class="lede">Use what you have, waste less, and eat a little better every day.</p>
-      <div class="cta">
-        <a class="btn" href="support.html">Get in touch</a>
-        <a class="btn ghost" href="#how">See how it works</a>
+      <div class="stores">
+        <a class="store" href="https://apps.apple.com/app/id6810644731"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.02-2.22 1.81-3.29 1.9-3.34-1.04-1.52-2.65-1.72-3.22-1.75-1.37-.14-2.68.81-3.37.81-.7 0-1.77-.79-2.91-.77-1.5.02-2.88.87-3.65 2.21-1.56 2.7-.4 6.69 1.12 8.88.74 1.07 1.62 2.27 2.78 2.23 1.12-.05 1.54-.72 2.89-.72 1.35 0 1.73.72 2.91.7 1.2-.02 1.96-1.09 2.69-2.17.85-1.24 1.2-2.45 1.22-2.51-.03-.01-2.33-.9-2.36-3.57zM14.16 6.08c.61-.74 1.03-1.77.91-2.8-.88.04-1.95.59-2.58 1.33-.57.66-1.07 1.71-.93 2.72.98.08 1.99-.5 2.6-1.25z"/></svg><span><small>Download on the</small>App Store</span></a>
+        <a class="store" href="https://play.google.com/store/apps/details?id=com.useitfresh.app"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00D7FE" d="M3.6 2.3 13.4 12l-9.8 9.7c-.3-.2-.5-.6-.5-1V3.3c0-.4.2-.8.5-1z"/><path fill="#00F076" d="M16.7 8.7 13.4 12 3.6 2.3c.1-.1.3-.1.4-.1.2 0 .4 0 .6.1l12.1 6.4z"/><path fill="#FF3A44" d="M16.7 15.3 4.6 21.7c-.2.1-.4.1-.6.1-.1 0-.3 0-.4-.1l9.8-9.7 3.3 3.3z"/><path fill="#FFD400" d="m20.4 13.3-3.7 2-3.3-3.3 3.3-3.3 3.7 2c.5.3.8.8.8 1.3s-.3 1-.8 1.3z"/></svg><span><small>Get it on</small>Google Play</span></a>
       </div>
       <p class="note" style="margin-top:14px">For iPhone and Android. Made in Australia.</p>
     </div>
-    <div class="collage" aria-hidden="true">
-      <img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/salad-leaves.webp" alt="" loading="lazy">
-      <img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/red-onions.webp" alt="" loading="lazy">
-      <img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/lemons.webp" alt="" loading="lazy">
-      <img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/eggs.webp" alt="" loading="lazy">
-      <img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/sourdough.webp" alt="" loading="lazy">
-      <img src="https://ltdvxdizjrkgwldbmbbf.supabase.co/storage/v1/object/public/app-assets/design/library/cherry-tomatoes.webp" alt="" loading="lazy">
+    <div class="hero-art">
+      <div class="phone scanphone" role="img" aria-label="The Use It Fresh app scanning a fridge shelf and listing what it finds">
+        <div class="screen">
+          <div class="scanbar"><span>Fridge</span><b>Scanning&hellip;</b></div>
+          <div class="shelf">
+            <img src="media/fridge-shelf.webp" alt="" width="900" height="503">
+            <span class="beam"></span>
+            <span class="box b1"><i>Salad leaves</i></span>
+            <span class="box b2"><i>Milk 2 L</i></span>
+            <span class="box b3"><i>Lemons &times; 3</i></span>
+            <span class="box b4"><i>Tomatoes</i></span>
+          </div>
+          <ul class="found">
+            <li>Salad leaves <em class="soon">2 days</em></li>
+            <li>Milk &middot; 2 L <em>9 days</em></li>
+            <li>Lemons &times; 3 <em>3 weeks</em></li>
+            <li>Cherry tomatoes <em class="soon">4 days</em></li>
+          </ul>
+          <div class="addall">Add 4 foods to my fridge</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="start">
-    <h2>How to get on top of your shopping</h2>
-    <p class="sub">Two habits. The first takes one evening, the second takes ten seconds at the bench.</p>
-    <ol class="steps">
-      <li class="step">
-        <span class="num" aria-hidden="true">1</span>
-        <div>
-          <b>Once: scan your kitchen</b>
-          <p>Photograph your fridge, then the freezer, then the pantry — a shelf at a time.
-            Everything is read, named, counted and dated for you. You check the list, and in it
-            goes. Your first three shelf scans are free, so a whole stock take costs nothing.</p>
-        </div>
+    <h2>Make meals from what you have in 3 easy steps.</h2>
+    <p class="sub">No typing your fridge into a list. One photo in, dinner out.</p>
+    <ol class="trio">
+      <li>
+        <span class="big" aria-hidden="true">1</span>
+        <div class="phone"><img src="media/step-scan.webp" alt="The app's shelf scanner finding ten foods in a pantry photo" loading="lazy"></div>
+        <h3>Scan it.</h3>
+        <p>Snap a shelf, a barcode or a receipt. Every item is found, named, counted and dated for you.</p>
       </li>
-      <li class="step">
-        <span class="num" aria-hidden="true">2</span>
-        <div>
-          <b>Then: scan your shopping</b>
-          <p>Photograph the receipt when you get home and the whole shop goes in, each thing filed
-            where you keep it — frozen in the freezer, tins in the pantry. Food you already had
-            is checked off, not added twice. One photo a shop, and your kitchen stays true.</p>
-        </div>
+      <li>
+        <span class="big" aria-hidden="true">2</span>
+        <div class="phone"><img src="media/step-pick.webp" alt="Blueberries in the fridge, with how many days they have left" loading="lazy"></div>
+        <h3>Pick it.</h3>
+        <p>See what needs using first, with honest dates: printed or estimated, it always says which.</p>
+      </li>
+      <li>
+        <span class="big" aria-hidden="true">3</span>
+        <div class="phone"><img src="media/step-chef.webp" alt="Meal ideas built from the food that needs using" loading="lazy"></div>
+        <h3>Chef it.</h3>
+        <p>Dinner ideas from exactly what you have tonight, led by whatever is closest to its date.</p>
       </li>
     </ol>
-    <p class="sub" style="margin-top:14px">That is the whole job. From then on the app knows what
-      you have, so it can tell you what to use first and what to cook tonight.</p>
   </section>
 
-  <section id="how">
-    <h2>How it works</h2>
-    <p class="sub">One photo in, dinner out. None of it is typing your fridge into a list.</p>
-    <div class="cards">
-      <div class="card">
-        <div class="ico" aria-hidden="true"><span class="ms">document_scanner</span></div>
-        <b>One photo fills your kitchen</b>
-        <p>Point your phone at a shelf: every item is read, named, counted and dated, down to how many eggs are left in the carton. A whole receipt works too, line by line, with each thing put where you keep it. You always check before anything is added, and anything we had to guess is marked.</p>
+  <section id="waste">
+    <div class="waste">
+      <div>
+        <p class="tagline">Food waste</p>
+        <h2>The food we buy and never eat.</h2>
+        <p class="sub">Most of it isn't careless. It's the bag of spinach at the back, the second tub of yoghurt bought because we forgot the first, the leftovers nobody remembered.</p>
+        <div class="stats">
+          <div><b>2.5 million</b><span>tonnes of food thrown out by Australian households every year</span></div>
+          <div><b>4 kg+</b><span>per household, every week</span></div>
+          <div><b>$2,000&ndash;2,500</b><span>a year, per household, spent on food that's wasted</span></div>
+        </div>
+        <p class="source">Source: <a href="https://www.qld.gov.au/environment/circular-economy-waste-reduction/reduction/reduce-food-waste/facts">Queensland Government, food waste facts</a>.</p>
       </div>
-      <div class="card">
-        <div class="ico" aria-hidden="true"><span class="ms">schedule</span></div>
-        <b>See what needs using</b>
-        <p>Every food shows how long it has, and says whether that came from a printed date or an estimate. A daily reminder names what to use next.</p>
-      </div>
-      <div class="card">
-        <div class="ico" aria-hidden="true"><span class="ms">restaurant_menu</span></div>
-        <b>Dinner, decided</b>
-        <p>Three dinners you can actually cook tonight, built from the food you already own and led by whatever is closest to its date. Say how many are eating, and it sets the food aside. Allergies and diets are left out every time, for everyone at the table.</p>
-      </div>
+      <ul class="fixes">
+        <li><span class="ms" aria-hidden="true">schedule</span><div><b>See it before it's too late</b><p>Every food shows how long it has, and one calm reminder a day names what to use next.</p></div></li>
+        <li><span class="ms" aria-hidden="true">restaurant_menu</span><div><b>Cook what needs using</b><p>Meal ideas start with whatever is closest to its date, not a recipe you'd need to shop for.</p></div></li>
+        <li><span class="ms" aria-hidden="true">ac_unit</span><div><b>Freeze it in a tap</b><p>Won't get to it in time? Freeze it from the food's card and buy yourself months.</p></div></li>
+        <li><span class="ms" aria-hidden="true">insights</span><div><b>See where it goes</b><p>What you used and what you threw out, over six months, so the next shop is smaller.</p></div></li>
+      </ul>
     </div>
   </section>
 
   <section id="taste">
     <div class="learn">
       <div>
-        <p class="tagline">Use It Fresh Plus</p>
-        <h2>Meal ideas that learn your taste</h2>
-        <p class="sub">The more you cook with Use It Fresh, the more its ideas look like the meals you actually choose, still built from the food you have.</p>
+        <p class="tagline">AI that does the boring bits</p>
+        <h2>Smart where it helps. You stay in charge.</h2>
+        <p class="sub">Use It Fresh uses AI for the jobs nobody wants to do by hand, and is honest about what it can't do.</p>
         <ul class="points">
-          <li><b>It learns from what you do.</b> The meals you keep, plan, cook and eat, and the ones you skip or swap out. No long quiz: three quick taps to start, if you like: cuisines, cooking time and spice.</li>
-          <li><b>It leans, it never overrides.</b> Allergies and foods you leave out always come first. And about one idea in four is something a little different, so you don't end up in a rut.</li>
-          <li><b>You can see it and change it.</b> Profile → What we've learned shows it in plain words. Remove anything that isn't right, or start again.</li>
-          <li><b>It stays yours.</b> Only you see it. It's used for your meal ideas and nothing else, never sold or used for ads, and it's deleted with your account.</li>
+          <li><b>It reads your photos.</b> A shelf, a receipt or a single food: AI names each item, counts it and estimates how long it keeps. You check the list before anything goes in, and anything it had to guess is marked.</li>
+          <li><b>It writes meals from your food.</b> Ideas built from what you actually have, leaving out your allergies and diets every time, for everyone at the table.</li>
+          <li><b>It learns your taste</b> (Plus). The meals you keep, cook and skip shape the next ideas. Profile &rarr; What we've learned shows it in plain words, and you can change it.</li>
+          <li><b>It knows its limits.</b> It never invents a use-by date and never says food is safe. Photos are only used to read the food, never sold or used for ads.</li>
         </ul>
       </div>
       <div class="learned" aria-label="An example of What we've learned in the app">
