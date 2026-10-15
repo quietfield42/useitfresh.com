@@ -448,3 +448,30 @@ html.entered .entrance { display:none; }
 .b3 { left:45%; top:70%; width:33%; height:24%; animation-delay:1.25s; }
 .scanphone .found { gap:5px; margin-top:10px; }
 .scanphone .found li { padding:6px 10px; }
+
+/* 15 Oct: fridge, freezer and pantry scenes, one every 5 seconds. */
+.scanphone .screen { position:relative; }
+.scene { display:none; flex-direction:column; height:100%; }
+.scene.on { display:flex; animation:scenein .5s ease; }
+@keyframes scenein { from { opacity:0; } to { opacity:1; } }
+.scene .box { animation:boxin .45s ease forwards; opacity:0; }
+@keyframes boxin { from { opacity:0; transform:scale(.9); } to { opacity:1; transform:none; } }
+.scene .beam { animation:beam 2.6s ease-in-out 1 forwards; }
+.scene .found li { opacity:0; animation:rowin .35s ease forwards; }
+.scene .found li:nth-child(1) { animation-delay:1.6s; } .scene .found li:nth-child(2) { animation-delay:1.8s; }
+.scene .found li:nth-child(3) { animation-delay:2s; } .scene .found li:nth-child(4) { animation-delay:2.2s; }
+.scene .found li:nth-child(5) { animation-delay:2.4s; }
+@keyframes rowin { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+.scanphone .found { gap:4px; margin-top:8px; }
+.scanphone .found li { padding:5px 10px; font-size:12px; }
+.scanphone .scanbar { padding:26px 16px 8px; }
+.scanphone .addall { margin:auto 10px 12px; padding:9px; }
+.scene[data-scene="freezer"] .scanbar span { color:#1F5F99; }
+.scene[data-scene="pantry"] .scanbar span { color:#8A5A12; }
+@media (prefers-reduced-motion: reduce) {
+  .scene .box, .scene .found li { animation:none; opacity:1; }
+  .scene .beam { display:none; }
+}
+
+/* Labels on boxes at the right edge hang to the left, so they are not cut off. */
+.scene .box.r i { left:auto; right:4px; }
