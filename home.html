@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800&family=Nunito:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=ac_unit,all_inclusive,auto_awesome,calendar_month,check_circle,checklist,delete,document_scanner,event_available,favorite,groups,insights,kitchen,menu_book,monitor_heart,payments,photo_camera,receipt_long,restaurant_menu,scale,schedule,shield,verified_user,visibility_off,workspace_premium&display=block">
-<link rel="stylesheet" href="style.css?v=20261015120847">
+<link rel="stylesheet" href="style.css?v=20261015122819">
 <link rel="preload" as="image" href="media/fridge-closed.jpg">
 <script>
   // The fridge entrance plays once per visit. A link straight to a section
@@ -166,13 +166,13 @@
 
   <section id="start">
     <h2>Make meals from what you have in 3 easy steps.</h2>
-    <p class="sub">No typing your fridge into a list. One photo in, dinner out.</p>
+    <p class="sub">No typing your fridge into a list. One scan in, dinner out.</p>
     <ol class="trio">
       <li>
         <span class="big" aria-hidden="true">1</span>
-        <div class="phone"><img src="media/step-scan.webp" alt="The app's shelf scanner finding ten foods in a pantry photo" loading="lazy"></div>
+        <div class="phone"><img src="media/step-scan.webp" alt="The app's shelf scanner finding ten foods in a pantry scan" loading="lazy"></div>
         <h3>Scan it.</h3>
-        <p>Snap a shelf, a barcode or a receipt. Every item is found, named, counted and dated for you.</p>
+        <p>Scan a shelf, a barcode or a receipt. Every item is found, named, counted and dated for you.</p>
       </li>
       <li>
         <span class="big" aria-hidden="true">2</span>
@@ -227,8 +227,8 @@
     <p class="tagline">AI that does the boring bits</p>
     <h2>Smart where it helps. You stay in charge.</h2>
     <p class="sub">Use It Fresh uses AI for the jobs nobody wants to do by hand, and is honest about what it can't do.</p>
-    <div class="flow reveal" aria-label="A photo becomes your list, then dinner ideas">
-      <div class="node"><span class="ms" aria-hidden="true">photo_camera</span><b>Your photo</b><small>a shelf, a receipt, a food</small></div>
+    <div class="flow reveal" aria-label="A scan becomes your list, then dinner ideas">
+      <div class="node"><span class="ms" aria-hidden="true">document_scanner</span><b>Your scan</b><small>a shelf, a receipt, a food</small></div>
       <div class="pipe" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="node ai"><span class="ms" aria-hidden="true">auto_awesome</span><b>AI reads it</b><small>names, counts, dates</small></div>
       <div class="pipe" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -238,10 +238,10 @@
     </div>
     <div class="learn">
       <ul class="aicards">
-        <li class="reveal"><span class="ic c1 ms" aria-hidden="true">document_scanner</span><div><b>It reads your photos</b><p>Each item is named, counted and given an estimated life. Anything it had to guess is marked.</p></div></li>
+        <li class="reveal"><span class="ic c1 ms" aria-hidden="true">document_scanner</span><div><b>It reads your scans</b><p>Each item is named, counted and given an estimated life. Anything it had to guess is marked.</p></div></li>
         <li class="reveal"><span class="ic c2 ms" aria-hidden="true">restaurant_menu</span><div><b>It writes meals from your food</b><p>Built from what you have, leaving out your allergies and diets every time, for everyone at the table.</p></div></li>
         <li class="reveal"><span class="ic c5 ms" aria-hidden="true">favorite</span><div><b>It learns your taste <em class="pluschip">Plus</em></b><p>The meals you keep, cook and skip shape the next ideas. You can see it and change it.</p></div></li>
-        <li class="reveal"><span class="ic c3 ms" aria-hidden="true">verified_user</span><div><b>It knows its limits</b><p>It never invents a use-by date and never says food is safe. Photos are only used to read the food.</p></div></li>
+        <li class="reveal"><span class="ic c3 ms" aria-hidden="true">verified_user</span><div><b>It knows its limits</b><p>It never invents a use-by date and never says food is safe. Scans are only used to read the food.</p></div></li>
       </ul>
       <div class="learned" aria-label="An example of What we've learned in the app">
         <div class="learned-head"><span class="spark" aria-hidden="true"><span class="ms">auto_awesome</span></span><b>What we've learned</b><span class="tag">PLUS</span></div>
@@ -304,7 +304,7 @@
           <li><span class="ms" aria-hidden="true">check_circle</span>Dates, use-soon reminders, what you used</li>
           <li><span class="ms" aria-hidden="true">check_circle</span>Allergy and diet exclusions</li>
           <li><span class="ms" aria-hidden="true">check_circle</span>Meal ideas from your food</li>
-          <li><span class="ms" aria-hidden="true">check_circle</span>Barcodes and single-food photos</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Barcode and single-food scans</li>
           <li><span class="ms" aria-hidden="true">check_circle</span>First 3 shelf scans free, then 3 scans a month</li>
           <li><span class="ms" aria-hidden="true">check_circle</span>Shopping list, shared with one other person</li>
         </ul>
@@ -335,8 +335,8 @@
       <p>No, and it never will. It tracks dates and gives estimates so you notice food in time. Judging whether something is safe is yours to make — check the food itself, and when in doubt with high-risk food, throw it out.</p>
     </details>
     <details>
-      <summary>What happens to the photos I take?</summary>
-      <p>A photo of a shelf, a receipt or a single food is sent to Google's Gemini service to read what's in it, and the picture is stored in your household's private storage so your food has a picture. Receipt photos aren't kept. See the <a href="privacy.html">privacy policy</a>.</p>
+      <summary>What happens to my scans?</summary>
+      <p>A scan of a shelf, a receipt or a single food is sent to Google's Gemini service to read what's in it, and the picture is stored in your household's private storage so your food has a picture. Receipt scans aren't kept. See the <a href="privacy.html">privacy policy</a>.</p>
     </details>
     <details>
       <summary>Can my partner or housemates see the same kitchen?</summary>
