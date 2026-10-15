@@ -428,3 +428,13 @@ html.entered .entrance { display:none; }
 /* 15 Oct: every scan label sits inside its box, so none is cut off at the
    photo's edge (lemons and herbs were). */
 .box i, .b3 i, .b4 i { top:4px; bottom:auto; left:4px; right:auto; }
+
+/* 15 Oct: taller scan photo (the whole shelf height) and the list below it,
+   using the phone's full screen. */
+.shelf { aspect-ratio:660/671; flex:0 0 auto; }
+.b1 { left:35%; top:6%; width:50%; height:42%; }
+.b2 { left:11%; top:26%; width:25%; height:41%; }
+.b3 { left:3%; top:63%; width:48%; height:30%; }
+.b4 { left:55%; top:59%; width:44%; height:32%; }
+.scanphone .found { margin-top:12px; }
+.scanphone .addall { margin-top:auto; }
