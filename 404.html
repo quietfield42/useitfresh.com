@@ -72,7 +72,8 @@
     <div class="hero-art">
       <div class="phone scanphone" role="img" aria-label="The Use It Fresh app scanning a fridge, a freezer and a pantry and listing what it finds">
         <div class="screen">
-        <div class="scene on" data-scene="fridge">
+        <div class="screen-loader" aria-hidden="true"><span class="ring"></span><img src="symbol-color.svg" alt=""></div>
+        <div class="scene" data-scene="fridge">
           <div class="scanbar"><span>Fridge</span><b>Scanning&hellip;</b></div>
           <div class="shelf">
             <img src="media/fridge-shelf.webp" alt="" width="660" height="795">
@@ -95,7 +96,7 @@
         <div class="scene" data-scene="freezer">
           <div class="scanbar"><span>Freezer</span><b>Scanning&hellip;</b></div>
           <div class="shelf">
-            <img src="media/freezer-shelf.webp" alt="" width="660" height="795" loading="lazy">
+            <img src="media/freezer-shelf.webp" alt="" width="660" height="795">
             <span class="beam"></span>
             <span class="box" style="left:1%;top:8%;width:31%;height:32%;animation-delay:0.30s"><i>Frozen peas</i></span>
             <span class="box" style="left:32%;top:12%;width:33%;height:28%;animation-delay:0.55s"><i>Mixed berries</i></span>
@@ -115,7 +116,7 @@
         <div class="scene" data-scene="pantry">
           <div class="scanbar"><span>Pantry</span><b>Scanning&hellip;</b></div>
           <div class="shelf">
-            <img src="media/pantry-shelf.webp" alt="" width="660" height="795" loading="lazy">
+            <img src="media/pantry-shelf.webp" alt="" width="660" height="795">
             <span class="beam"></span>
             <span class="box" style="left:5%;top:1%;width:28%;height:39%;animation-delay:0.30s"><i>Penne pasta</i></span>
             <span class="box" style="left:35%;top:4%;width:23%;height:35%;animation-delay:0.55s"><i>Rice</i></span>
@@ -131,6 +132,32 @@
             <li><span>Olive oil &middot; 1 L</span> <em>1 year</em></li>
           </ul>
           <div class="addall">Add 5 foods to my pantry</div>
+        </div>
+        <div class="scene" data-scene="receipt">
+          <div class="scanbar"><span>Receipt</span><b>Scanning&hellip;</b></div>
+          <div class="shelf paper">
+            <div class="receipt">
+              <p class="shop">YOUR LOCAL GROCER</p>
+              <p class="when">15/10/2026 &nbsp; 5:42 pm</p>
+              <ul>
+                <li><span>Chicken thighs 1kg</span><span>9.50</span></li>
+                <li><span>Baby spinach 120g</span><span>3.00</span></li>
+                <li><span>Bananas x6</span><span>3.10</span></li>
+                <li><span>Greek yoghurt 1kg</span><span>5.20</span></li>
+                <li><span>Sourdough loaf</span><span>6.00</span></li>
+                <li class="tot"><span>TOTAL</span><span>$26.80</span></li>
+              </ul>
+            </div>
+            <span class="beam"></span>
+          </div>
+          <ul class="found">
+            <li><span>Chicken thighs &middot; 1 kg</span> <em class="soon">2 days</em></li>
+            <li><span>Baby spinach &middot; 120 g</span> <em class="soon">4 days</em></li>
+            <li><span>Sourdough loaf</span> <em class="soon">4 days</em></li>
+            <li><span>Bananas &times; 6</span> <em>5 days</em></li>
+            <li><span>Greek yoghurt &middot; 1 kg</span> <em>2 weeks</em></li>
+          </ul>
+          <div class="addall">Add 5 foods to my kitchen</div>
         </div>
         </div>
       </div>
@@ -430,16 +457,41 @@
   items.forEach(function (el) { io.observe(el); });
 
 
-  // The phone scans the fridge, then the freezer, then the pantry, 5 s each.
-  var scenes = document.querySelectorAll('.scanphone .scene');
-  if (scenes.length > 1 && !reduce) {
-    var at = 0;
-    setInterval(function () {
-      if (document.hidden) return;
-      scenes[at].classList.remove('on');
-      at = (at + 1) % scenes.length;
-      scenes[at].classList.add('on');
-    }, 5000);
+  // The phone scans the fridge, freezer, pantry and a receipt in turn,
+  // cross-fading every 5 s. Nothing shows until every photo has loaded; the
+  // app's own leaf loader covers the screen meanwhile (owner, 15 Oct).
+  var phone = document.querySelector('.scanphone');
+  var scenes = phone ? phone.querySelectorAll('.scene') : [];
+  function show(i) {
+    scenes.forEach(function (sc, k) {
+      if (k === i) {
+        sc.classList.remove('play');
+        void sc.offsetWidth;            // restart its scan animations
+        sc.classList.add('on', 'play');
+      } else {
+        sc.classList.remove('on');
+      }
+    });
+  }
+  if (scenes.length) {
+    var imgs = phone.querySelectorAll('.scene img');
+    var waits = Array.prototype.map.call(imgs, function (im) {
+      return im.complete ? Promise.resolve() : new Promise(function (ok) {
+        im.addEventListener('load', ok, { once: true });
+        im.addEventListener('error', ok, { once: true });
+      });
+    });
+    Promise.all(waits).then(function () {
+      phone.classList.add('ready');
+      var at = 0;
+      show(0);
+      if (reduce) return;
+      setInterval(function () {
+        if (document.hidden) return;
+        at = (at + 1) % scenes.length;
+        show(at);
+      }, 5000);
+    });
   }
   var y = document.getElementById('bill-year'), m = document.getElementById('bill-month');
   function setPlan(yearly) {

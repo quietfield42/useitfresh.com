@@ -475,3 +475,60 @@ html.entered .entrance { display:none; }
 
 /* Labels on boxes at the right edge hang to the left, so they are not cut off. */
 .scene .box.r i { left:auto; right:4px; }
+
+/* 15 Oct: scenes cross-fade; the app's leaf loader until the photos load. */
+.scanphone .screen { position:relative; }
+.scene { display:flex; flex-direction:column; position:absolute; inset:0; opacity:0; visibility:hidden;
+         transition:opacity .8s ease, visibility 0s linear .8s; animation:none; }
+.scene.on { opacity:1; visibility:visible; transition:opacity .8s ease; animation:none; }
+.scene .box, .scene .found li { animation:none; opacity:0; }
+.scene .beam { animation:none; top:-60px; }
+.scene.play .box { animation:boxin .45s ease forwards; }
+.scene.play .beam { animation:beam 2.6s ease-in-out 1 forwards; }
+.scene.play .found li { animation:rowin .35s ease forwards; }
+.scene.play .found li:nth-child(1) { animation-delay:1.6s; } .scene.play .found li:nth-child(2) { animation-delay:1.8s; }
+.scene.play .found li:nth-child(3) { animation-delay:2s; } .scene.play .found li:nth-child(4) { animation-delay:2.2s; }
+.scene.play .found li:nth-child(5) { animation-delay:2.4s; }
+
+.screen-loader { position:absolute; inset:0; display:grid; place-items:center; background:var(--ground); z-index:3;
+                 transition:opacity .5s ease, visibility 0s linear .5s; }
+.scanphone.ready .screen-loader { opacity:0; visibility:hidden; }
+.screen-loader .ring { position:absolute; width:72px; height:72px; border-radius:50%; background:#F7F7F0;
+                       box-shadow:0 4px 12px rgba(0,0,0,.2); }
+.screen-loader .ring::after { content:""; position:absolute; inset:3px; border-radius:50%;
+  background:conic-gradient(from 0deg, rgba(7,83,58,0) 0deg, #3F9C5E 150deg, #07533A 216deg, transparent 216deg);
+  -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+          mask:radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+  animation:spin 1s linear infinite; }
+.screen-loader .ring::before { content:""; position:absolute; inset:3px; border-radius:50%; border:3px solid #DCE6D3; }
+.screen-loader img { position:relative; width:36px; height:36px; animation:breathe 1s ease-in-out infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+@keyframes breathe { 0%,100% { transform:scale(.9) rotate(-4deg); } 50% { transform:scale(1.02) rotate(4deg); } }
+
+/* the receipt */
+.shelf.paper { background:linear-gradient(160deg,#D9D2C3,#C9C0AE); display:grid; place-items:center; }
+.receipt { width:84%; height:92%; background:#FFFEFA; box-shadow:0 6px 14px rgba(0,0,0,.18); transform:rotate(-2deg);
+           padding:10px 10px 0; font:600 9.5px/1.25 "IBM Plex Mono", ui-monospace, monospace; color:#2b2b2b;
+           clip-path:polygon(0 0,100% 0,100% 96%,94% 100%,88% 96%,82% 100%,76% 96%,70% 100%,64% 96%,58% 100%,52% 96%,46% 100%,40% 96%,34% 100%,28% 96%,22% 100%,16% 96%,10% 100%,4% 96%,0 100%); }
+.receipt .shop { text-align:center; font-weight:700; letter-spacing:.06em; margin:2px 0 1px; }
+.receipt .when { text-align:center; color:#777; margin:0 0 8px; font-size:8.5px; }
+.receipt ul { list-style:none; margin:0; padding:0; display:grid; gap:7px; }
+.receipt li { display:flex; justify-content:space-between; gap:6px; }
+.receipt li span:first-child { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.receipt .tot { border-top:1px dashed #999; padding-top:5px; font-weight:700; }
+.scene[data-scene="receipt"] .scanbar span { color:#6B3FA0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .scene .box, .scene .found li { opacity:1; }
+  .screen-loader .ring::after, .screen-loader img { animation:none; }
+}
+
+/* Receipt lines light up one by one as they are read. */
+.receipt ul { gap:10px; }
+.receipt li:not(.tot) { padding:3px 5px; margin:0 -5px; border-radius:6px; box-shadow:0 0 0 0 transparent; }
+.scene.play .receipt li:not(.tot) { animation:lineread .45s ease forwards; }
+.scene.play .receipt li:nth-child(1) { animation-delay:.3s; } .scene.play .receipt li:nth-child(2) { animation-delay:.55s; }
+.scene.play .receipt li:nth-child(3) { animation-delay:.8s; } .scene.play .receipt li:nth-child(4) { animation-delay:1.05s; }
+.scene.play .receipt li:nth-child(5) { animation-delay:1.3s; }
+@keyframes lineread { to { background:rgba(131,189,67,.22); box-shadow:0 0 0 2px #07533A; } }
+@media (prefers-reduced-motion: reduce) { .receipt li:not(.tot) { background:rgba(131,189,67,.22); box-shadow:0 0 0 2px #07533A; } }
