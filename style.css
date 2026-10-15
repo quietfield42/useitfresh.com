@@ -168,6 +168,10 @@ footer { margin-top:40px; padding:30px 0 60px; font-size:14px; color:#CFE3D2;
 footer .wrap { display:flex; flex-wrap:wrap; gap:12px 26px; justify-content:space-between; align-items:center; }
 footer a { color:#FFFEF9; text-decoration:none; margin-right:16px; font-weight:700; }
 footer a:hover { color:var(--leaf); }
+footer .social { display:flex; gap:6px; }
+footer .social a { display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; margin:0; border-radius:50%; }
+footer .social a:hover { background:rgba(255,255,255,.08); }
+footer .social a:focus-visible { outline:2px solid var(--leaf); outline-offset:2px; }
 
 @media (max-width:860px) {
   .hero { grid-template-columns:1fr; gap:28px; padding-top:40px; }
