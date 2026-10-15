@@ -424,3 +424,7 @@ html.entered .entrance { display:none; }
 }
 
 .upto { font-size:.42em; font-weight:700; color:#CFE0C6; letter-spacing:0; vertical-align:.35em; }
+
+/* 15 Oct: every scan label sits inside its box, so none is cut off at the
+   photo's edge (lemons and herbs were). */
+.box i, .b3 i, .b4 i { top:4px; bottom:auto; left:4px; right:auto; }
