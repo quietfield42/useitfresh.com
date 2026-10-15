@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800&family=Nunito:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=ac_unit,auto_awesome,document_scanner,event_available,groups,insights,restaurant_menu,schedule,shield,visibility_off&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=ac_unit,all_inclusive,auto_awesome,calendar_month,check_circle,checklist,delete,document_scanner,event_available,favorite,groups,insights,kitchen,menu_book,monitor_heart,payments,photo_camera,receipt_long,restaurant_menu,scale,schedule,shield,verified_user,visibility_off,workspace_premium&display=block">
 <link rel="stylesheet" href="style.css">
 <link rel="preload" as="image" href="media/fridge-closed.jpg">
 <script>
@@ -42,7 +42,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="home.html"><img src="symbol-color.svg" alt="">Use It Fresh</a>
+    <a class="brand" href="home.html"><img class="logo" src="horizontal-color.svg" alt="Use It Fresh" width="183" height="50"></a>
     <nav class="nav">
       <a href="home.html" aria-current="page">Home</a>
       <a href="support.html">Support</a>
@@ -74,18 +74,18 @@
         <div class="screen">
           <div class="scanbar"><span>Fridge</span><b>Scanning&hellip;</b></div>
           <div class="shelf">
-            <img src="media/fridge-shelf.webp" alt="" width="900" height="503">
+            <img src="media/fridge-shelf.webp" alt="" width="660" height="520">
             <span class="beam"></span>
-            <span class="box b1"><i>Salad leaves</i></span>
-            <span class="box b2"><i>Milk 2 L</i></span>
+            <span class="box b1"><i>Fresh herbs</i></span>
+            <span class="box b2"><i>Milk 1 L</i></span>
             <span class="box b3"><i>Lemons &times; 3</i></span>
-            <span class="box b4"><i>Tomatoes</i></span>
+            <span class="box b4"><i>Cherry tomatoes</i></span>
           </div>
           <ul class="found">
-            <li>Salad leaves <em class="soon">2 days</em></li>
-            <li>Milk &middot; 2 L <em>9 days</em></li>
-            <li>Lemons &times; 3 <em>3 weeks</em></li>
-            <li>Cherry tomatoes <em class="soon">4 days</em></li>
+            <li><span>Cherry tomatoes &middot; 250 g</span> <em class="soon">4 days</em></li>
+            <li><span>Fresh herbs</span> <em class="soon">3 days</em></li>
+            <li><span>Milk &middot; 1 L</span> <em>9 days</em></li>
+            <li><span>Lemons &times; 3</span> <em>3 weeks</em></li>
           </ul>
           <div class="addall">Add 4 foods to my fridge</div>
         </div>
@@ -118,41 +118,60 @@
     </ol>
   </section>
 
-  <section id="waste">
-    <div class="waste">
-      <div>
-        <p class="tagline">Food waste</p>
-        <h2>The food we buy and never eat.</h2>
-        <p class="sub">Most of it isn't careless. It's the bag of spinach at the back, the second tub of yoghurt bought because we forgot the first, the leftovers nobody remembered.</p>
-        <div class="stats">
-          <div><b>2.5 million</b><span>tonnes of food thrown out by Australian households every year</span></div>
-          <div><b>4 kg+</b><span>per household, every week</span></div>
-          <div><b>$2,000&ndash;2,500</b><span>a year, per household, spent on food that's wasted</span></div>
+  <section id="waste" class="band">
+    <div class="band-in">
+      <p class="tagline light">Food waste</p>
+      <h2>The food we buy and never eat.</h2>
+      <p class="sub">Most of it isn't careless. It's the spinach at the back, the second tub of yoghurt bought because we forgot the first, the leftovers nobody remembered.</p>
+      <div class="bigstats">
+        <div class="bigstat reveal">
+          <span class="ms bi" aria-hidden="true">delete</span>
+          <b><span class="count" data-to="2.5" data-dec="1">2.5</span> million</b>
+          <span>tonnes of food thrown out by Australian households every year</span>
         </div>
-        <p class="source">Source: <a href="https://www.qld.gov.au/environment/circular-economy-waste-reduction/reduction/reduce-food-waste/facts">Queensland Government, food waste facts</a>.</p>
+        <div class="bigstat reveal">
+          <span class="ms bi" aria-hidden="true">scale</span>
+          <b><span class="count" data-to="4" data-dec="0">4</span> kg+</b>
+          <span>per household, every single week</span>
+          <span class="bags" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="bigstat reveal">
+          <span class="ms bi" aria-hidden="true">payments</span>
+          <b><small class="upto">up to</small> $<span class="count" data-to="2500" data-dec="0" data-comma="1">2,500</span></b>
+          <span>a year per household, spent on food that ends up in the bin</span>
+        </div>
       </div>
-      <ul class="fixes">
-        <li><span class="ms" aria-hidden="true">schedule</span><div><b>See it before it's too late</b><p>Every food shows how long it has, and one calm reminder a day names what to use next.</p></div></li>
-        <li><span class="ms" aria-hidden="true">restaurant_menu</span><div><b>Cook what needs using</b><p>Meal ideas start with whatever is closest to its date, not a recipe you'd need to shop for.</p></div></li>
-        <li><span class="ms" aria-hidden="true">ac_unit</span><div><b>Freeze it in a tap</b><p>Won't get to it in time? Freeze it from the food's card and buy yourself months.</p></div></li>
-        <li><span class="ms" aria-hidden="true">insights</span><div><b>See where it goes</b><p>What you used and what you threw out, over six months, so the next shop is smaller.</p></div></li>
+      <p class="source">Source: <a href="https://www.qld.gov.au/environment/circular-economy-waste-reduction/reduction/reduce-food-waste/facts">Queensland Government, food waste facts</a>.</p>
+      <h3 class="helps">How Use It Fresh helps</h3>
+      <ul class="fixgrid">
+        <li class="reveal"><span class="ic c1 ms" aria-hidden="true">schedule</span><b>See it in time</b><p>Every food shows how long it has. One calm reminder a day names what to use next.</p></li>
+        <li class="reveal"><span class="ic c2 ms" aria-hidden="true">restaurant_menu</span><b>Cook what needs using</b><p>Meal ideas start with whatever is closest to its date, not a recipe you'd need to shop for.</p></li>
+        <li class="reveal"><span class="ic c3 ms" aria-hidden="true">ac_unit</span><b>Freeze it in a tap</b><p>Won't get to it in time? Freeze it from the food's card and buy yourself months.</p></li>
+        <li class="reveal"><span class="ic c4 ms" aria-hidden="true">insights</span><b>See where it goes</b><p>What you used and what you threw out, over six months, so the next shop is smaller.</p></li>
       </ul>
     </div>
   </section>
 
   <section id="taste">
+    <p class="tagline">AI that does the boring bits</p>
+    <h2>Smart where it helps. You stay in charge.</h2>
+    <p class="sub">Use It Fresh uses AI for the jobs nobody wants to do by hand, and is honest about what it can't do.</p>
+    <div class="flow reveal" aria-label="A photo becomes your list, then dinner ideas">
+      <div class="node"><span class="ms" aria-hidden="true">photo_camera</span><b>Your photo</b><small>a shelf, a receipt, a food</small></div>
+      <div class="pipe" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="node ai"><span class="ms" aria-hidden="true">auto_awesome</span><b>AI reads it</b><small>names, counts, dates</small></div>
+      <div class="pipe" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="node"><span class="ms" aria-hidden="true">checklist</span><b>You check it</b><small>nothing goes in unseen</small></div>
+      <div class="pipe" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="node"><span class="ms" aria-hidden="true">restaurant_menu</span><b>Dinner ideas</b><small>from your own food</small></div>
+    </div>
     <div class="learn">
-      <div>
-        <p class="tagline">AI that does the boring bits</p>
-        <h2>Smart where it helps. You stay in charge.</h2>
-        <p class="sub">Use It Fresh uses AI for the jobs nobody wants to do by hand, and is honest about what it can't do.</p>
-        <ul class="points">
-          <li><b>It reads your photos.</b> A shelf, a receipt or a single food: AI names each item, counts it and estimates how long it keeps. You check the list before anything goes in, and anything it had to guess is marked.</li>
-          <li><b>It writes meals from your food.</b> Ideas built from what you actually have, leaving out your allergies and diets every time, for everyone at the table.</li>
-          <li><b>It learns your taste</b> (Plus). The meals you keep, cook and skip shape the next ideas. Profile &rarr; What we've learned shows it in plain words, and you can change it.</li>
-          <li><b>It knows its limits.</b> It never invents a use-by date and never says food is safe. Photos are only used to read the food, never sold or used for ads.</li>
-        </ul>
-      </div>
+      <ul class="aicards">
+        <li class="reveal"><span class="ic c1 ms" aria-hidden="true">document_scanner</span><div><b>It reads your photos</b><p>Each item is named, counted and given an estimated life. Anything it had to guess is marked.</p></div></li>
+        <li class="reveal"><span class="ic c2 ms" aria-hidden="true">restaurant_menu</span><div><b>It writes meals from your food</b><p>Built from what you have, leaving out your allergies and diets every time, for everyone at the table.</p></div></li>
+        <li class="reveal"><span class="ic c5 ms" aria-hidden="true">favorite</span><div><b>It learns your taste <em class="pluschip">Plus</em></b><p>The meals you keep, cook and skip shape the next ideas. You can see it and change it.</p></div></li>
+        <li class="reveal"><span class="ic c3 ms" aria-hidden="true">verified_user</span><div><b>It knows its limits</b><p>It never invents a use-by date and never says food is safe. Photos are only used to read the food.</p></div></li>
+      </ul>
       <div class="learned" aria-label="An example of What we've learned in the app">
         <div class="learned-head"><span class="spark" aria-hidden="true"><span class="ms">auto_awesome</span></span><b>What we've learned</b><span class="tag">PLUS</span></div>
         <p class="learned-sub">From the meals you keep, plan, cook and eat.</p>
@@ -199,39 +218,43 @@
   </section>
 
   <section id="plans">
-    <h2>Free and Plus</h2>
-    <p class="sub">The everyday things stay free. Plus is less typing and more time for dinner: unlimited scans, weekly plans and receipts, for the whole household.</p>
-    <div class="plans">
-      <div class="plan">
-        <h3>Free</h3>
-        <p class="price">Free, for good</p>
-        <ul>
-          <li>Your kitchen: fridge, freezer, pantry</li>
-          <li>Dates, use-soon reminders, what you used</li>
-          <li>Allergy and diet exclusions</li>
-          <li>Meal ideas from your food</li>
-          <li>Barcodes and single-food photos</li>
-          <li>Your first 3 shelf scans free, to fill your kitchen</li>
-          <li>Then 3 shelf or receipt scans a month, counted only when food goes in</li>
-          <li>Shopping list, shared with one other person</li>
-        </ul>
-      </div>
-      <div class="plan plus">
-        <h3>Plus</h3>
-        <p class="price">A$7.99 a month <span class="price-or">or</span> A$49.99 a year</p>
-        <p class="price-note">About A$4.17 a month on the yearly plan, which starts with 7 days free. One Plus covers up to 6 people in your household; a Free kitchen is for 2.</p>
-        <ul>
-          <li>Plan my week, leftovers and “I ate this”</li>
-          <li>Meals that fit your goals: calories and protein</li>
-          <li>Unlimited shelf and receipt scans</li>
-          <li>Receipts, prices and a weekly budget</li>
-          <li>Meal ideas that learn your taste</li>
-          <li>Your own recipe collection</li>
-          <li>Up to 6 people in your household, all covered</li>
-        </ul>
-      </div>
+    <p class="tagline">Free and Plus</p>
+    <h2>Free for every kitchen. Plus for the whole week.</h2>
+    <p class="sub">The everyday things stay free. Plus is less typing and more time for dinner, for everyone in your household.</p>
+    <div class="billing" role="group" aria-label="Show Plus prices">
+      <button type="button" id="bill-year" class="on" aria-pressed="true">Yearly <em>7 days free</em></button>
+      <button type="button" id="bill-month" aria-pressed="false">Monthly</button>
     </div>
-    <p class="note" style="margin-top:16px">Prices are in Australian dollars. Plus is bought in the app through the App Store or Google Play, renews until you cancel, and can be cancelled at any time in your store account.</p>
+    <div class="plans2">
+      <article class="p2 reveal">
+        <header><span class="ic c1 ms" aria-hidden="true">kitchen</span><div><h3>Free</h3><p class="amt">A$0 <small>for good</small></p></div></header>
+        <ul>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Your kitchen: fridge, freezer, pantry</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Dates, use-soon reminders, what you used</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Allergy and diet exclusions</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Meal ideas from your food</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Barcodes and single-food photos</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>First 3 shelf scans free, then 3 scans a month</li>
+          <li><span class="ms" aria-hidden="true">check_circle</span>Shopping list, shared with one other person</li>
+        </ul>
+      </article>
+      <article class="p2 plus reveal">
+        <span class="ribbon" id="ribbon">7 days free</span>
+        <header><span class="ic gold ms" aria-hidden="true">workspace_premium</span><div><h3>Plus</h3>
+          <p class="amt"><span id="plus-price">A$49.99</span> <small id="plus-per">a year</small></p>
+          <p class="per" id="plus-note">About A$4.17 a month. Starts with 7 days free.</p></div></header>
+        <ul>
+          <li><span class="ms" aria-hidden="true">calendar_month</span>Plan my week, leftovers and &ldquo;I ate this&rdquo;</li>
+          <li><span class="ms" aria-hidden="true">monitor_heart</span>Meals that fit your goals: calories and protein</li>
+          <li><span class="ms" aria-hidden="true">all_inclusive</span>Unlimited shelf and receipt scans</li>
+          <li><span class="ms" aria-hidden="true">receipt_long</span>Receipts, prices and a weekly budget</li>
+          <li><span class="ms" aria-hidden="true">favorite</span>Meal ideas that learn your taste</li>
+          <li><span class="ms" aria-hidden="true">menu_book</span>Your own recipe collection</li>
+          <li><span class="ms" aria-hidden="true">groups</span>Up to 6 people in your household, all covered</li>
+        </ul>
+      </article>
+    </div>
+    <p class="note" style="margin-top:16px">Prices are in Australian dollars. Plus is bought in the app through the App Store or Google Play, renews until you cancel, and can be cancelled at any time in your store account. A Free kitchen is for 2 people.</p>
   </section>
 
   <section>
@@ -321,6 +344,62 @@
   entrance.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') enter();
   });
+})();
+</script>
+<script>
+/* Movement (14 Oct): sections rise in as they scroll into view, figures count
+   up, and the Plus price follows the monthly / yearly switch. Content is
+   visible without this script. */
+(function () {
+  var root = document.documentElement;
+  root.classList.add('js');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fmt(v, dec, comma) {
+    var t = v.toFixed(dec);
+    return comma ? Number(t).toLocaleString('en-AU') : t;
+  }
+  function count(el) {
+    var to = parseFloat(el.dataset.to), dec = +el.dataset.dec || 0, comma = !!el.dataset.comma;
+    if (reduce) { el.textContent = fmt(to, dec, comma); return; }
+    var t0 = null;
+    function step(t) {
+      if (!t0) t0 = t;
+      var k = Math.min(1, (t - t0) / 1400), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = fmt(to * e, dec, comma);
+      if (k < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var items = document.querySelectorAll('.reveal, .count, .bags');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      if (e.target.classList.contains('count')) count(e.target);
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.2 });
+  items.forEach(function (el) { io.observe(el); });
+
+  var y = document.getElementById('bill-year'), m = document.getElementById('bill-month');
+  function setPlan(yearly) {
+    y.classList.toggle('on', yearly); m.classList.toggle('on', !yearly);
+    y.setAttribute('aria-pressed', yearly); m.setAttribute('aria-pressed', !yearly);
+    document.getElementById('plus-price').textContent = yearly ? 'A$49.99' : 'A$7.99';
+    document.getElementById('plus-per').textContent = yearly ? 'a year' : 'a month';
+    document.getElementById('plus-note').textContent = yearly
+      ? 'About A$4.17 a month. Starts with 7 days free.'
+      : 'Cancel any time. The free week comes with the yearly plan.';
+    document.getElementById('ribbon').style.visibility = yearly ? 'visible' : 'hidden';
+  }
+  if (y && m) {
+    y.addEventListener('click', function () { setPlan(true); });
+    m.addEventListener('click', function () { setPlan(false); });
+  }
 })();
 </script>
 <!-- Cloudflare Web Analytics: counts visits to this website, no cookies (13 Oct 2026) --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "96a02cd5fb584765b3b1d1bc43d276f2"}'></script><!-- End Cloudflare Web Analytics -->
