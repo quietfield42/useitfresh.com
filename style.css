@@ -438,3 +438,13 @@ html.entered .entrance { display:none; }
 .b4 { left:55%; top:59%; width:44%; height:32%; }
 .scanphone .found { margin-top:12px; }
 .scanphone .addall { margin-top:auto; }
+
+/* 15 Oct: two-shelf fridge photo (Higgsfield), zoomed out. */
+.shelf { aspect-ratio:660/795; }
+.b1 { left:8%; top:1%; width:21%; height:45%; animation-delay:.2s; }
+.b2 { left:29%; top:5%; width:40%; height:41%; animation-delay:.45s; }
+.b5 { left:64%; top:25%; width:33%; height:22%; animation-delay:.7s; }
+.b4 { left:1%; top:57%; width:48%; height:36%; animation-delay:1s; }
+.b3 { left:45%; top:70%; width:33%; height:24%; animation-delay:1.25s; }
+.scanphone .found { gap:5px; margin-top:10px; }
+.scanphone .found li { padding:6px 10px; }
