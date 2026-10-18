@@ -257,6 +257,8 @@ html.entered .entrance { display:none; }
 .store svg { width:26px; height:26px; flex:0 0 auto; }
 .store small { display:block; font-size:11px; font-weight:600; opacity:.8; letter-spacing:.02em; }
 .store:hover { background:#222; }
+.store-soon { opacity:.55; cursor:default; }
+.store-soon:hover { background:#111; }
 
 .phone { position:relative; width:min(270px,72vw); aspect-ratio:9/19; border-radius:42px; background:#151815; padding:10px;
          box-shadow:0 30px 60px rgba(7,83,58,.22), inset 0 0 0 2px #2b302b; margin:0 auto; max-width:100%; }
