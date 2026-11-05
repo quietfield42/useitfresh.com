@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.useitfresh.app",
+      "sha256_cert_fingerprints": ["9F:26:F2:ED:E5:72:6B:9F:18:8D:5B:4C:EB:63:A2:F0:0E:97:F4:CC:A8:4B:74:2E:AB:A1:98:4B:D7:EC:17:10"]
+    }
+  }
+]

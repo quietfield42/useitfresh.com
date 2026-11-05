@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confirm your email · Use It Fresh</title>
+<link rel="stylesheet" href="/style.css">
+</head><body style="font-family:Nunito,'Segoe UI',Helvetica,Arial,sans-serif;text-align:center;padding:48px 20px;color:#202C24;background:#F7F7F0">
+<!-- With the app installed, this link opens the app and never reaches this
+     page. Without it (a computer, or the app not installed yet), confirm the
+     email here, then the person signs in on the app with their password. -->
+<h1 style="font-size:26px">Confirming your email…</h1>
+<p id="note" style="font-size:16px;color:#59665D">One moment.</p>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var hash = q.get('token_hash'), type = q.get('type') || 'signup';
+  var note = document.getElementById('note');
+  if (!hash) { note.textContent = 'This link is missing its code. Open Use It Fresh and tap "Send it again".'; return; }
+  location.replace('https://ltdvxdizjrkgwldbmbbf.supabase.co/auth/v1/verify?token=' +
+    encodeURIComponent(hash) + '&type=' + encodeURIComponent(type) +
+    '&redirect_to=' + encodeURIComponent('useitfresh://useitfresh.com/'));
+  setTimeout(function () { note.textContent = 'Done. Open Use It Fresh on your phone and sign in.'; }, 2500);
+})();
+</script>
+</body></html>

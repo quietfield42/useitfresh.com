@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["RYNL69V8LQ.com.useitfresh.app"],
+        "components": [{ "/": "/auth/*", "comment": "Email links: confirm, sign in" }]
+      }
+    ]
+  }
+}
