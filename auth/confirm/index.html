@@ -17,7 +17,7 @@
   if (!hash) { note.textContent = 'This link is missing its code. Open Use It Fresh and tap "Send it again".'; return; }
   location.replace('https://ltdvxdizjrkgwldbmbbf.supabase.co/auth/v1/verify?token=' +
     encodeURIComponent(hash) + '&type=' + encodeURIComponent(type) +
-    '&redirect_to=' + encodeURIComponent('useitfresh://useitfresh.com/'));
+    '&redirect_to=' + encodeURIComponent(type === 'recovery' ? 'useitfresh://useitfresh.com/update-password' : 'useitfresh://useitfresh.com/'));
   setTimeout(function () { note.textContent = 'Done. Open Use It Fresh on your phone and sign in.'; }, 2500);
 })();
 </script>
