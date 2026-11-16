@@ -12,22 +12,10 @@
 <header class="top">
   <img src="assets/logo.svg" alt="Use It Fresh" class="logo">
   <span class="top-title">Marketing portal</span>
-  <button type="button" id="who" class="who" hidden></button>
-</header>
+  </header>
 
 <main>
-  <section id="signin" class="card signin" hidden>
-    <h1>Upload posts straight to Metricool</h1>
-    <p>Enter the team passcode and your name once. This browser remembers them.</p>
-    <form id="signin-form">
-      <label>Team passcode<input id="pass" type="password" autocomplete="current-password" required></label>
-      <label>Your name<input id="name" autocomplete="name" maxlength="100" required></label>
-      <button class="big" type="submit">Start</button>
-      <output id="signin-msg" aria-live="polite"></output>
-    </form>
-  </section>
-
-  <div id="app" hidden>
+  <div id="app">
     <p id="mc-status" class="mc-status" role="status">Checking Metricool…</p>
 
     <nav class="tabs" role="tablist" aria-label="Social accounts" id="tabs"></nav>
@@ -89,6 +77,6 @@
 
 <footer>Use It Fresh marketing portal · Uploads go straight to Metricool and post at the time you pick.</footer>
 <script src="config.js"></script>
-<script src="portal.js?v=1"></script>
+<script src="portal.js?v=2"></script>
 </body>
 </html>

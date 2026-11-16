@@ -25,7 +25,9 @@
   const SIZE = { post: [1080, 1350], story: [1080, 1920], tiktok: [1080, 1920] };
   const CAPTION_LIMIT = { x: 280, threads: 500, tiktok: 2200, instagram: 2200, youtube: 5000, facebook: 5000 };
 
-  let pass = store.get('pass'), name = store.get('name');
+  // No sign-in screen (Ash, 16 Nov 2026): the page sends the team key itself.
+  const pass = 'peanut-lettuce-yoghurt-custard-8571';
+  const name = 'Marketing team';
   let tab = ACCOUNTS.find((a) => '#' + a.id === location.hash) || ACCOUNTS[0];
   let type = 'post', also = new Set(), source = null, uploaded = null, busy = false, uploadToken = 0;
 
@@ -41,23 +43,6 @@
     return data;
   }
 
-  // ---------- sign in ----------
-  function showSignin(msg = '') {
-    $('app').hidden = true; $('who').hidden = true; $('signin').hidden = false;
-    $('name').value = name; $('signin-msg').textContent = msg; $('signin-msg').className = msg ? 'msg error' : '';
-  }
-  $('signin-form').onsubmit = async (e) => {
-    e.preventDefault();
-    pass = $('pass').value.trim(); name = $('name').value.trim();
-    $('signin-msg').className = ''; $('signin-msg').textContent = 'Checking…';
-    try {
-      const hello = await api('hello');
-      store.set('pass', pass); store.set('name', name);
-      start(hello);
-    } catch (err) { showSignin(err.message); }
-  };
-  $('who').onclick = () => { if (confirm('Sign out of the marketing portal on this browser?')) { store.del('pass'); pass = ''; showSignin(); } };
-
   function mcStatus(m) {
     const el = $('mc-status');
     if (!m) return;
@@ -66,8 +51,6 @@
   }
 
   function start(hello) {
-    $('signin').hidden = true; $('app').hidden = false; $('who').hidden = false;
-    $('who').textContent = name + ' · sign out';
     mcStatus(hello?.metricool);
     renderTabs(); selectTab(tab);
   }
@@ -271,7 +254,6 @@
         showMsg('Uploaded. Add the caption and time, then press Send to Metricool.', 'ok');
       } catch (err) {
         if (token !== uploadToken) return;
-        if (err.status === 403) return showSignin('Your passcode has changed. Enter the new one.');
         showMsg((err.message.startsWith('upload') || err.message === 'network' ? 'The upload didn\'t finish. Check your connection and choose the file again.' : err.message), 'error');
       } finally {
         if (token === uploadToken) { busy = false; renderComposer(); }
@@ -314,7 +296,6 @@
       else showMsg(`Saved for ${when} Sydney time. It goes into Metricool as soon as Metricool is connected.`, 'ok');
       resetComposer();
     } catch (err) {
-      if (err.status === 403) return showSignin('Your passcode has changed. Enter the new one.');
       showMsg(err.message, 'error');
     } finally { busy = false; renderComposer(); loadList(); }
   };
@@ -334,7 +315,7 @@
         const when = new Date(r.publish_at).toLocaleString('en-AU', { timeZone: 'Australia/Sydney', weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' });
         const kind = { story: 'Story', reel: 'Reel', short: 'Short', video: 'Video', post: 'Post' }[r.post_type] || 'Post';
         return `<div class="item" data-id="${r.id}">${media}<div>
-          <p><span class="badge ${r.status}">${LABEL[r.status] || r.status}</span><span class="meta">${kind} · goes out ${esc(when)} · by ${esc(r.uploaded_by)}</span></p>
+          <p><span class="badge ${r.status}">${LABEL[r.status] || r.status}</span><span class="meta">${kind} · goes out ${esc(when)}</span></p>
           <p class="cap">${esc(r.caption || '(no caption)')}</p>
           ${r.error ? `<p class="err">${esc(r.error)}</p>` : ''}
           <div class="actions">
@@ -355,14 +336,13 @@
         });
       });
     } catch (err) {
-      if (err.status === 403) return showSignin('Enter the team passcode.');
       $('list').innerHTML = `<p class="err">${esc(err.message)}</p>`;
     }
   }
 
   // ---------- go ----------
   quick(Number(sydneyParts(new Date()).time.slice(0, 2)) < 18 ? 20 : 8);
-  if (!pass) showSignin();
-  else api('hello').then(start).catch((err) => showSignin(err.status === 403 ? 'Enter the team passcode.' : err.message));
+  start(null);
+  api('hello').then((h) => mcStatus(h.metricool)).catch(() => {});
   window.addEventListener('focus', () => { if (!$('app').hidden && !busy) loadList(); });
 })();
